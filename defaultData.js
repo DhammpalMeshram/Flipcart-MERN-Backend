@@ -2,9 +2,6 @@ import Product from "./modules/product.js";
 import User from "./modules/user.js";
 import { products } from "./constants/Data.js";
 
-// const Product = require("./modules/product.js");
-// const {products} = require("./constants/Data.js");
-
 
 const defaultData = async ()=>{
     try{

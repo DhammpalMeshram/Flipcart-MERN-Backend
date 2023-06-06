@@ -19,6 +19,8 @@ const dataBaseConnect = async()=>{
     try{
         await mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true})
         console.log("Database is connected successfully");
+        // defaultData();
+
     }
     catch(err){
         console.log(err.message);
@@ -30,5 +32,3 @@ dataBaseConnect();
 app.listen(process.env.PORT, ()=>{
     console.log("server is running at port "+process.env.PORT);
 })
-
-// defaultData();
