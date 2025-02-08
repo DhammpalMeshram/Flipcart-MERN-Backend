@@ -1,5 +1,5 @@
 import express from "express";
-import {signUpController, signInController} from "../controllers/userController.js";
+import {signUpController, signInController, updateUserAddress} from "../controllers/userController.js";
 import { getAllProducts, getProductById } from "../controllers/productController.js";
 import {storeToCartController,getAllcartData} from "../controllers/cartController.js";
 
@@ -10,6 +10,7 @@ router.post("/signup", signUpController);
 router.get("/product", getAllProducts);
 router.get('/product/:id', getProductById)
 router.post("/cartadd", storeToCartController);
-router.post("/cart", getAllcartData)
+router.post("/cart", getAllcartData);
+router.put("/user/:username/address", updateUserAddress);
 
 export default router;

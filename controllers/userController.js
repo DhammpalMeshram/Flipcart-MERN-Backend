@@ -35,8 +35,9 @@ export const signInController = async (req, res)=>{
             res.status(200).json({
                 username:existUser.username, 
                 id: existUser.email,
+                address: existUser.address,
                 cartItems: existUser.cartItems,
-                message:"log in successfull"});
+                message:"log in successful"});
             }            
         else res.status(401).json({message:"Incorrect Password"});
     }
@@ -45,3 +46,23 @@ export const signInController = async (req, res)=>{
     }
 }
 
+
+export const updateUserAddress = async (req, res) => {
+    try {
+        const { username } = req.params;
+        const { address } = req.body;
+
+        const existUser = await User.findOne({username});
+        if (!existUser) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        existUser.address = address;
+        await existUser.save();
+
+        res.status(200).json({ message: "Address updated successfully" });
+    } catch (error) {
+        console.error("Error updating address:", error);
+        res.status(500).json({ message: "Server Error" });
+    }
+};
