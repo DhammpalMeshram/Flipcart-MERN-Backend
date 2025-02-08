@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import {defaultData} from "./defaultData.js";
+import {resetDefaultData} from "./defaultData.js";
 import router from "./routes/routes.js";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -16,19 +16,21 @@ app.use("", router);
 
 //function to connect database cloud
 const dataBaseConnect = async()=>{
+    console.log('connecting with the database.......');
     try{
-        await mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true})
-        console.log("Database is connected successfully");
-        // defaultData();
+        // await mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true});
+        await mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology: true, useNewUrlParser: true});
 
+        console.log("Database is connected successfully");
+        // resetDefaultData();
     }
     catch(err){
-        console.log(err.message);
+        console.log('Failed to connect with database');
+        console.log(err);
     }
 }
 
-dataBaseConnect();
-
 app.listen(process.env.PORT, ()=>{
     console.log("server is running at port "+process.env.PORT);
+    dataBaseConnect();
 })
