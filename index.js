@@ -18,9 +18,7 @@ app.use("", router);
 const dataBaseConnect = async()=>{
     console.log('connecting with the database.......');
     try{
-        // await mongoose.connect(process.env.MONGO_URI, {useUnifiedTopology: true, useNewUrlParser: true});
         await mongoose.connect(process.env.MONGO_URI,{useUnifiedTopology: true, useNewUrlParser: true});
-
         console.log("Database is connected successfully");
         // resetDefaultData();
     }
