@@ -1,0 +1,7 @@
+Steps to connect with the local MongoDB
+Go to this: C:\Program Files\MongoDB\Server\8.0\bin
+and double click on mongod.exe
+
+if it is running well then everything is good otherwise
+delete the data folder an db folder which is inside it in c drive and create once more the same folders
+and try again

@@ -7,11 +7,11 @@ const resetDefaultData = async ()=>{
     try{
         // to reset all users
         console.log('Deleting old users to avoid duplication....');
-        await User.deleteMany();
+        // await User.deleteMany();
 
-        console.log('Inserting Users to database....');
-        await User.insertMany(users);
-        console.log('Users inserted successfully');
+        // console.log('Inserting Users to database....');
+        // await User.insertMany(users);
+        // console.log('Users inserted successfully');
 
         //to reset all products
         // console.log('deleting all the old products to avoid duplication....');
